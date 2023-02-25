@@ -9,18 +9,22 @@ import pandas as pd
 import numpy as np
 
 # Read in the data
-from pikl_prog import astral_df, gmm_df , lal_df, amrut_df
+from pikl_prog import astral_df, gmm_df , lal_df, amrut_df, alkyl_df,ap_df,divis_df,titan_df
 
 df_t = gmm_df.copy()
 
 # Initialize the app
-app = dash.Dash(__name__)
+app = dash.Dash(__name__,)
 server = app.server
 
 dropdown_options2 = [{'label': 'Astral', 'value': 'astral_df'},
                     {'label': 'GMM', 'value': 'gmm_df'},
                     {'label': 'Dr. Lal Pathlabs', 'value': 'lal_df'},
-                    {'label': 'Amrutanjan', 'value': 'amrut_df'}]
+                    {'label': 'Amrutanjan', 'value': 'amrut_df'},
+                     {'label': 'Alkyl Amines', 'value': 'alkyl_df'},
+                     {'label': 'Asian Paints', 'value': 'ap_df'},
+                     {'label': 'Divis Labs', 'value': 'divis_df'},
+                     {'label': 'Titan', 'value': 'titan_df'}]
 
 fig_eps=px.line(df_t, x='date', y='EPS in Rs',
                        title='Earnings',
@@ -151,7 +155,7 @@ dropdown_options = [{'label': 'op_ratio', 'value': 'op_ratio'},
                     {'label': 'np_ratio', 'value': 'np_ratio'},
                     {'label': 'OPM %', 'value': 'OPM %'}]  #
 # Create the initial plot
-fig = px.line(df_t, x='date', y='op_ratio', title='Trend over Time')
+fig = px.line(df_t, x='date', y='OPM %', title='Trend over Time')
 
 
 # Update the plot based on the selected dropdown option
@@ -164,6 +168,17 @@ def update_plot(selected_df, column):
         df_t = lal_df.copy()
     elif selected_df == 'amrut_df':
         df_t = amrut_df.copy()
+    elif selected_df == 'alkyl_df':
+        df_t = alkyl_df.copy()
+    elif selected_df == 'ap_df':
+        df_t = ap_df.copy()
+    elif selected_df == 'divis_df':
+        df_t = divis_df.copy()
+    elif selected_df == 'titan_df':
+        df_t = titan_df.copy()
+
+
+
 
     avg = df_t[column].mean()
     # Remove the existing average trace before adding the new one
@@ -233,6 +248,14 @@ def update_graph(selected_df):
         df_t = lal_df.copy()
     elif selected_df == 'amrut_df':
         df_t = amrut_df.copy()
+    elif selected_df == 'alkyl_df':
+        df_t = alkyl_df.copy()
+    elif selected_df == 'ap_df':
+        df_t = ap_df.copy()
+    elif selected_df == 'divis_df':
+        df_t = divis_df.copy()
+    elif selected_df == 'titan_df':
+        df_t = titan_df.copy()
 
     fig_eps = px.line(df_t, x='date', y='EPS in Rs',
                       title='Earnings',
