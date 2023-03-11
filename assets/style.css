@@ -1,0 +1,85 @@
+/* Apply styles to the body element */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Define styles for the container element */
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+/* Define styles for the header element */
+.header {
+  text-align: center;
+  font-size: 24px;
+  padding: 10px;
+}
+
+/* Define styles for the button element */
+.button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #0074d9;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* Define styles for the dropdown element */
+.dropdown {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* Define styles for the output element */
+.output {
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* Define styles for the input element */
+.input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Define media queries for different screen sizes */
+@media only screen and (max-width: 375px) {
+  /* Apply styles for iPhone SE 3 */
+  .container {
+    padding: 5px;
+  }
+
+  .header {
+    font-size: 20px;
+  }
+
+  .button {
+    font-size: 14px;
+  }
+
+  .output {
+    padding: 5px;
+  }
+
+  .input {
+    padding: 5px;
+    font-size: 14px;
+  }
+}

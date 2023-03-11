@@ -9,12 +9,14 @@ import pandas as pd
 import numpy as np
 
 # Read in the data
-from pikl_prog import astral_df, gmm_df , lal_df, amrut_df, alkyl_df,ap_df,divis_df,titan_df
+from pikl_prog import astral_df, gmm_df , lal_df, amrut_df, alkyl_df,ap_df,divis_df,titan_df, tcs_df, tata_elxsi_df
 
 df_t = gmm_df.copy()
 
 # Initialize the app
 app = dash.Dash(__name__,)
+# app = dash.Dash(__name__, external_stylesheets=['style.css'])
+
 server = app.server
 
 dropdown_options2 = [{'label': 'Astral', 'value': 'astral_df'},
@@ -24,6 +26,8 @@ dropdown_options2 = [{'label': 'Astral', 'value': 'astral_df'},
                      {'label': 'Alkyl Amines', 'value': 'alkyl_df'},
                      {'label': 'Asian Paints', 'value': 'ap_df'},
                      {'label': 'Divis Labs', 'value': 'divis_df'},
+                     {'label': 'TCS', 'value': 'tcs_df'},
+                     {'label': 'TATA Elxsi', 'value': 'tata_elxsi_df'},
                      {'label': 'Titan', 'value': 'titan_df'}]
 
 fig_eps=px.line(df_t, x='date', y='EPS in Rs',
@@ -176,6 +180,12 @@ def update_plot(selected_df, column):
         df_t = divis_df.copy()
     elif selected_df == 'titan_df':
         df_t = titan_df.copy()
+    elif selected_df == 'tcs_df':
+        df_t = tcs_df.copy()
+    elif selected_df == 'tata_elxsi_df':
+        df_t = tata_elxsi_df.copy()
+
+
 
 
 
@@ -256,6 +266,10 @@ def update_graph(selected_df):
         df_t = divis_df.copy()
     elif selected_df == 'titan_df':
         df_t = titan_df.copy()
+    elif selected_df == 'tcs_df':
+        df_t = tcs_df.copy()
+    elif selected_df == 'tata_elxsi_df':
+        df_t = tata_elxsi_df.copy()
 
     fig_eps = px.line(df_t, x='date', y='EPS in Rs',
                       title='Earnings',
